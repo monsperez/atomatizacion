@@ -1,17 +1,20 @@
 package base;
 
-import org.openqa.selenium.WebDriver;
+import io.appium.java_client.AppiumDriver;
 
 public class AppDriver {
+    private static AppiumDriver driver;
 
-    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
-
-    public static WebDriver getDriver(){
-        return driver.get();
+    public static AppiumDriver getDriver() {
+        if (driver == null) {
+            throw new IllegalStateException("AppiumDriver not initialized. Call setDriver() first.");
+        }
+        return driver;
     }
 
-    public static void setDriver(WebDriver Driver){
-        driver.set(Driver);
+
+    public static void setDriver(AppiumDriver driver){
+        AppDriver.driver = driver;
         System.out.println("Driver is set");
     }
 }
