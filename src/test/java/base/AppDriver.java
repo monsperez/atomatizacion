@@ -12,7 +12,6 @@ public class AppDriver {
         return driver;
     }
 
-
     public static void setDriver(AppiumDriver driver){
         AppDriver.driver = driver;
         System.out.println("Driver is set");
